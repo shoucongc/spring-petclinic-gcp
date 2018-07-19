@@ -39,8 +39,8 @@
 
         <!-- Plugins -->
         <docker.plugin.version>1.4.0</docker.plugin.version>
-        <docker.image.prefix>saturnism</docker.image.prefix>
-        <docker.image.tag>latest</docker.image.tag>
+        <docker.image.prefix>gcr.io/kubernetes-monitoring-demo</docker.image.prefix>
+        <docker.image.tag>bad-demo-500s</docker.image.tag>
         <docker.image.exposed.port>8080</docker.image.exposed.port>
         <docker.image.dockerfile.dir>${basedir}</docker.image.dockerfile.dir>
 
