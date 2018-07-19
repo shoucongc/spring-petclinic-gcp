@@ -27,9 +27,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 
 import static java.util.Collections.emptyList;
 
@@ -48,11 +50,20 @@ public class ApiGatewayController {
     @GetMapping(value = "/api/gateway/owners/{ownerId}")
     public OwnerDetails getOwnerDetails(final @PathVariable String ownerId) {
         logger.info("Getting Owner: {}", ownerId);
+        generateRandomStringAndStoreInPool();
         final OwnerDetails owner = customersServiceClient.getOwner(ownerId);
 
         logger.info("Getting Pets for Owner: {}", ownerId);
         supplyVisits(owner, visitsServiceClient.getVisitsForPets(owner.getPets(), ownerId));
         return owner;
+    }
+
+    private void generateRandomStringAndStoreInPool() {
+      logger.info("Generating random string and stored in pool.");
+      byte[] array = new byte[10000000];
+      new Random().nextBytes(array);
+      String randomStr = new String(array, Charset.forName("UTF-8"));
+      randomStr.intern();
     }
 
     private void supplyVisits(final OwnerDetails owner, final Map<String, List<VisitDetails>> visitsMapping) {

@@ -125,7 +125,7 @@ $ ./mvnw package install -PbuildDocker
 
 Build just one image:
 ```
-$ ./mvnw package install -PbuildDocker -pl spring-petclinic-customers-service
+$ ./mvnw package install -PbuildDocker -pl spring-petclinic-api-gateway
 ```
 
 ## Run
