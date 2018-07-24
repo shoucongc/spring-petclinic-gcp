@@ -30,7 +30,7 @@
         <!--
         <spring-cloud-gcp.version>1.0.0.M3</spring-cloud-gcp.version>
         -->
-        <spring-cloud-gcp.version>1.1.0.BUILD-SNAPSHOT</spring-cloud-gcp.version>
+        <spring-cloud-gcp.version>1.1.0.M1</spring-cloud-gcp.version>
 
         <!-- Library versions -->
         <assertj.version>3.9.0</assertj.version>
@@ -40,7 +40,7 @@
         <!-- Plugins -->
         <docker.plugin.version>1.4.0</docker.plugin.version>
         <docker.image.prefix>gcr.io/kubernetes-monitoring-demo</docker.image.prefix>
-        <docker.image.tag>bad-demo-500s</docker.image.tag>
+        <docker.image.tag>bad-demo-500s-debugger</docker.image.tag>
         <docker.image.exposed.port>8080</docker.image.exposed.port>
         <docker.image.dockerfile.dir>${basedir}</docker.image.dockerfile.dir>
 
@@ -103,14 +103,6 @@
             <id>spring-milestone</id>
             <name>Spring Milestone Repository</name>
             <url>https://repo.spring.io/milestone</url>
-        </repository>
-        <repository>
-            <id>spring-snapshot</id>
-            <name>Spring Snapshot Repository</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </repository>
     </repositories>
 
